@@ -43,6 +43,7 @@
   param c{(i, j) in A},integer,>=1,<=20;
 
   ***集合就是模型中下标的索引空间***
+  
   set V := 0..n; 
   set P within V;
   set Aplus := V cross V;
@@ -50,13 +51,16 @@
   set A within Aplus;
 
   ***变量就是模型中的变量***
+ 
   var x{(i, j) in Aplus}, binary;
   var lamd{(k,i,j) in Al}, binary;
 
   ***目标函数***
+ 
   minimize obj : sum {(u,v) in A} c[u,v]*x[u,v];
 
   *约束条件，必须给每个约束条件命名，名字后的花括号是约束条件中的索引空间，求和函数的索引范围放在sum后的花括号中。*
+  
   s.t.
   second1{v in V: v = s}: (sum{(i,v) in A} x[i,v]) - (sum{(v,j) in A} x[v,j]) = -1;                             
   second2{v in V: v = t}: (sum{(i,v) in A} x[i,v]) - (sum{(v,j) in A} x[v,j]) = 1;
@@ -69,9 +73,11 @@
   tenth{u in V,v in V: (u,v) in A and (v,u) in A}: x[u,v]+x[v,u]<=1; 
 
   ***开始求解***                      
+  
   solve;
 
   ***输出变量的值***
+ 
   display  {(i,j) in A} x[i,j];
 
 
