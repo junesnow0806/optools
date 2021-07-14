@@ -33,9 +33,8 @@
   * 格式示例如下：
 
   #### 数学模型
-
-  ![image-20210714204635052](C:\Users\10\AppData\Roaming\Typora\typora-user-images\image-20210714204635052.png)
-
+  *图片我放不上来*
+ 
   ***参数就是模型中的常量***
 
   param n,integer,>=0; 
