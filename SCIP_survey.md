@@ -92,16 +92,8 @@ SCIP的使用通常是和SCIP优化套装(SCIP Optimization Suite)绑定在一�
     );
     SCIP_RETCODE SCIPfreeSol(SCIP *scip, SCIP_SOL **sol);
     /*fromCommandLine()中的子函数end*/
-        
-    //SCIPprocessShellArguments()调用，解析一个由SCIPprintReal()编写的实数值
-    unsigned int SCIPparseReal(
-        SCIP *scip,
-        const char *str,
-        double *value,
-        char **endptr
-    );
     ```
-
+    
 2. 输入输出格式
 
     ```c
