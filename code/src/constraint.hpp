@@ -6,31 +6,50 @@
 #define EQ 0
 #define BT 0
 #define BE 0
-#endif
 
 class singleCons
 {
-    singleCons() = delete;
+public:
+    singleCons() = default;
 };
 
 class unEqualCons : singleCons
 {
+public:
+    unEqualCons(int varNum, double *co, int type_) : type(type_) //可改为coefficient=co
+    {
+        coefficient = new double[varNum];
+        for (int i = 0; i < varNum; ++i)
+            coefficient[i] = co[i];
+    }
+
 private:
     int type;
     double *coefficient;
-    unEqualCons(int varNum);
 };
 
 class integerCons
 {
+public:
+    integerCons(int code) : varCode(code) {}
+
 private:
     int varCode;
 };
 
 class constraint
 {
+public:
+    constraint() = delete;
+    constraint(int varNum, std::string *names) : consNum(0), cons(nullptr)
+    {
+        vars = new varible(varNum, names);
+    };
+    void addCon();
+
 private:
-    varible vars;
+    varible *vars;
     int consNum;
     singleCons *cons;
 };
+#endif
