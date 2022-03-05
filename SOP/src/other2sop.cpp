@@ -1,28 +1,9 @@
+/* 本文件已实现pip, wbo文件格式到sop文件格式的转换 */
+
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
-
-/*
-class SOPText {
-public:
-    SOPText() {}
-    void set_probtype(std::string);
-    void set_objective(std::string);
-    void add_subjeccive(std::string);
-    void add_bounds(std::string);
-    void add_general(std::string);
-    void add_binary(std::string);
-    ~SOPText() {}
-private:
-    std::string probtype;
-    std::string objective;
-    std::vector<std::string> subjectives;
-    std::vector<std::string> bounds;
-    std::vector<std::string> general;
-    std::vector<std::string> binary;
-};
-*/
 
 void pipHandler(std::ifstream &infile, std::ofstream &outfile) {
     outfile << "Probtype pip" << std::endl << std::endl;
@@ -152,10 +133,11 @@ void wboHandler(std::ifstream &infile, std::ofstream &outfile) {
 }
 
 void mpsHandler(std::ifstream &infile, std::ofstream &outfile) {
-
+    // TODO:
 }
 
 int main() {
+    std::cout << "Now you can transform .pip, .wbo into .sop";
     std::cout << "Input file to open: ";
     std::string file_name;
     std::cin >> file_name;
